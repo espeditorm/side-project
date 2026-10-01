@@ -1,4 +1,4 @@
-"""Gera assessorias_esportivas_fortaleza.csv a partir dos dados levantados em pesquisa web (out/2026).
+"""Gera assessorias_esportivas_fortaleza.csv a partir dos dados levantados em pesquisa web (out/2026; ampliado na mesma data).
 
 Coordenadas são aproximadas (nível de quadra/bairro), estimadas a partir do endereço,
 porque a geocodificação automática não estava disponível no ambiente.
@@ -12,9 +12,9 @@ COLS = ["nome", "modalidades", "telefone_whatsapp", "email", "instagram", "site"
         "link_google_maps", "fonte", "observacoes"]
 
 D = [
-    ("KM Assessoria Esportiva", "Corrida, natação, ciclismo", "(85) 98820-0826", "", "@kmassessoriaesportiva", "kmassessoriaesportiva.com",
+    ("KM Assessoria Esportiva", "Corrida, natação, ciclismo", "(85) 98820-0826 / (85) 98753-1142 / (85) 3472-8716", "", "@kmassessoriaesportiva", "kmassessoriaesportiva.com",
      "R. Deputado Moreira da Rocha, 925 (CIAA) / R. João Cordeiro, 2095", "Meireles / Aldeota", "Beira Mar, Cocó, Iguatemi, Cambeba", -3.7310, -38.4920,
-     "kmassessoriaesportiva.com; instagram", "Desde 2008; presencial e online"),
+     "kmassessoriaesportiva.com; instagram; cnpj.biz (CNPJ 22.772.848/0001-71)", "Desde 2008; presencial e online"),
     ("AG Assessoria Esportiva", "Corrida, funcional", "(85) 98841-2772", "", "@agassessoriaesportiva", "",
      "Av. Beira Mar, 1680, CEP 60165-121", "Meireles", "Beira Mar (corrida); Praça da OAB (funcional)", -3.7238, -38.4975,
      "Wellhub; instagram", "Parceira Wellhub"),
@@ -28,7 +28,7 @@ D = [
      "xsteam.com.br", "Presencial e online"),
     ("Limiar Assessoria / Consultoria Esportiva", "Corrida", "(85) 99104-4139", "", "", "soulimiar.com.br",
      "Av. Padre Antônio Tomás, 850, Loja 43/44, CEP 60140-160", "Aldeota", "Aterro da Beira Mar", -3.7430, -38.4930, "soulimiar.com.br", ""),
-    ("Runners Assessoria Esportiva", "Corrida, natação, ciclismo, duathlon, triathlon", "(85) 99653-4883 / (85) 99706-8807", "", "", "runnersce.com.br",
+    ("Runners Assessoria Esportiva", "Corrida, natação, ciclismo, duathlon, triathlon", "(85) 99653-4883 / (85) 99706-8807", "runnersassessoriaesportiva@gmail.com", "", "runnersassessoriaesportiva.com.br",
      "", "Vários (5 núcleos)", "5 núcleos, incl. Maraponga (estac. Detran, ter/qui 19h)", -3.7900, -38.5650,
      "Facebook Runnersceara; runnersassessoriaesportiva.com.br", "Fundada em out/2014; +220 alunos. Coordenada = núcleo Maraponga"),
     ("Stark Assessoria Esportiva", "Corrida, ciclismo, natação, maratona", "(85) 99790-8536", "", "", "starkassessoriaesportiva.blogspot.com",
@@ -39,12 +39,12 @@ D = [
      "fortimeassessoria.com/horarios", "Fundada em mar/2014"),
     ("Triativo Assessoria Esportiva", "Triathlon, corrida", "(85) 99927-0027", "", "", "",
      "R. Des. Floriano Benevides Magalhães, 422", "Edson Queiroz", "", -3.7700, -38.4790,
-     "encontrafortaleza.com", "Mesmo endereço da For Time; registro CNPJ 'TFA Assessoria Esportiva / Tio Flavinho' na Av. Washington Soares, 3663"),
-    ("RunTri Assessoria Esportiva", "Triathlon, natação, ciclismo, corrida, caminhada", "", "", "", "",
+     "encontrafortaleza.com", "Mesmo endereço da For Time"),
+    ("RunTri Assessoria Esportiva", "Triathlon, natação, ciclismo, corrida, caminhada", "(85) 98191-3060", "", "", "",
      "Av. Washington Soares, 85 (entrada principal, Centauro), CEP 60811-341", "Edson Queiroz (Iguatemi)", "Iguatemi; Centro Administrativo do Cambeba; Eusébio (Shopping Buena Vista)", -3.7550, -38.4890,
-     "Wellhub; Facebook runtriassessoria", "Telefone não encontrado"),
-    ("Zona Alvo Assessoria Esportiva (Rafael Pinho)", "Triathlon, ciclismo, corrida, duathlon", "", "", "", "zonaalvoassessoria.com",
-     "Av. Padre Antônio Tomás, 850, loja 33, CEP 60140-160", "Aldeota", "", -3.7430, -38.4930, "TrainingPeaks", "Treinador desde 2004"),
+     "Wellhub; Facebook runtriassessoria", "Facebook cita sede na R. República da Armênia, 680"),
+    ("Zona Alvo Assessoria Esportiva (Rafael Pinho)", "Triathlon, ciclismo, corrida, duathlon", "(85) 3279-2879", "", "", "zonaalvoassessoria.com",
+     "Av. Padre Antônio Tomás, 850, loja 33, CEP 60140-160", "Aldeota", "", -3.7430, -38.4930, "TrainingPeaks; jusbrasil (CNPJ 11.159.270/0001-66)", "Treinador desde 2004; endereço no CNPJ: R. Alberto Leal Nunes, 101, Cidade dos Funcionários"),
     ("Unimed Ativa", "Corrida, caminhada", "(85) 4020-2111 (central Unimed)", "", "@unimedativaoficial", "unimedfortaleza.com.br/unimed-ativa",
      "Aterro da Beira Mar, em frente ao Ideal Clube", "Meireles", "Beira Mar (seg/qua/sex 6h e 18h30)", -3.7240, -38.5040,
      "unimedfortaleza.com.br", "Exclusiva para clientes Unimed; R$ 40-60"),
@@ -71,7 +71,7 @@ D = [
      "", "", "", "", "", "cnpj.biz (CNPJ 20.365.560/0001-57)", "E-mail existe no cadastro mas veio ofuscado"),
     ("REDES Assessoria e Consultoria Esportiva", "", "(85) 8721-7544", "", "", "",
      "Av. Senador Virgílio Távora, 318, Sala 106, CEP 60170-250", "Meireles", "", -3.7300, -38.4980, "guiapj.com.br (CNPJ 09.504.288/0001-06)", "Telefone antigo, verificar"),
-    ("B6 Assessoria Esportiva", "", "", "", "", "",
+    ("B6 Assessoria Esportiva", "", "(85) 9913-6755", "", "", "",
      "Av. Alanis Maria Laurindo de Oliveira, 460, CEP 60533-604", "Conjunto Ceará I", "", -3.7690, -38.6050, "solutudo (CNPJ 28.084.897/0001-06)", ""),
     ("Mascarenhas Assessoria Esportiva", "Natação", "", "", "", "",
      "Av. Humberto Monte, 2929, Sala 602", "Pici", "", -3.7450, -38.5770, "solutudo", ""),
@@ -79,6 +79,19 @@ D = [
      "", "", "", "", "", "solutudo", "Endereço não encontrado"),
     ("North Shopping Jóquei - assessoria gratuita", "Corrida, caminhada", "", "", "", "",
      "North Shopping Jóquei", "Jóquei Clube", "", -3.7660, -38.5600, "O Povo (set/2026)", "Iniciativa do shopping, gratuita"),
+    ("Fator 3 Assessoria Esportiva", "Corrida, funcional, personal", "(85) 98655-7774", "fator3assessoria@gmail.com", "@fator3assessoria", "",
+     "Av. Gen. Afonso Albuquerque Lima, 130, CEP 60822-325", "Cambeba", "Cambeba; também atua no Eusébio", -3.8075, -38.4890,
+     "Facebook fator3assessoria; Wellhub; assempece.org.br", "Parceira Wellhub"),
+    ("Tio Flavinho Assessoria (TFA Assessoria Esportiva)", "Corrida (método VO2PRO), funcional", "(85) 9988-5586", "tioflavinhoassessoria@gmail.com", "", "tfassessoria.com.br",
+     "Av. Washington Soares, 3663, Sala 413, Torre 2, CEP 60811-341", "Edson Queiroz", "", -3.7770, -38.4810,
+     "consultas.plus / vriconsulting (CNPJ 13.098.689/0001-80); MT Indica 2025", "Fundada em 2011; telefone com 8 dígitos no cadastro, verificar"),
+    ("Santitreinos (Santiago Ascenço)", "Corrida, triathlon, ciclismo", "", "contato@santitreinos.com.br", "@santitreinos", "santitreinos.com.br",
+     "", "", "Núcleo Fortaleza (treinadores André Bellaguarda, Leandro Gadelha, Gustavo Albuquerque); ver santitreinos.com.br/locais-de-treino-2", "", "",
+     "santitreinos.com.br; MT Indica 2025", "Assessoria nacional com núcleo em Fortaleza"),
+    ("+ Fit Assessoria Esportiva", "", "(85) 98543-7412", "", "", "",
+     "", "", "", "", "", "cnpj.biz (CNPJ 32.759.439/0001-99)", "Endereço não encontrado; e-mail ofuscado no cadastro"),
+    ("4 Swim Assessoria Esportiva", "Natação", "", "", "", "",
+     "", "", "", "", "", "econodata (CNPJ 22.242.882/0001-34)", "Só o cadastro CNPJ foi encontrado"),
 ]
 
 out = Path(__file__).with_name("assessorias_esportivas_fortaleza.csv")
